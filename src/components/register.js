@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import Logo from "../resourses/login.jpg"
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, NavLink, withRouter } from 'react-router-dom'
+import Axios from 'axios';
 
 const Register = (props) => {
     const [err, setErr] = useState(false)
     const [errStyle, setErrStyle] = useState('')
+    const [Term, setTerm] = useState(false)
+
 
     const [Email, setEmail] = useState('')
     const [FullName, setFullName] = useState('')
@@ -16,43 +19,49 @@ const Register = (props) => {
     const [CallBackErr, setCallBackErr] = useState([])
     const VEmail = (email) => {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-            setCallBackErr(CallBackErr.filter(el=>el !== "invalid email address"))
+          
             return true
         } else { 
-            setCallBackErr([...CallBackErr, "invalid email address"])
+         
             return false }
     }
     const VPassword = (password) => {
-        if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) {setCallBackErr(CallBackErr.filter(el=>el !== "Password must be at least 6 characters one digit one special character one uppercase"))
+        if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(password)) {
              return true }
-             setCallBackErr([...CallBackErr, "Password must be at least 6 characters one digit one special character one uppercase"])
+  
              return false
     }
     const VDiscord = (discord) => {
 
 
          if(discord.split('').includes("#")){
-            setCallBackErr(CallBackErr.filter(el=>el !== "invalid Discord ID"))
+          
 return true
          }
          else{
-            setCallBackErr([...CallBackErr, "invalid Discord ID"])
+
             return false
 
          }
     }
     const VFullName = (fullName) => {
-       if(fullName>5){
-        setCallBackErr(CallBackErr.filter(el=>el !== "FullName must be more then 5 Charecter"))
-        return true
-       }
-       else{
-        setCallBackErr([...CallBackErr, "FullName must be more then 5 Charecter"])
-        return false
-       }
-    }
+        if(fullName.length>=5){
+     
+         return true
+        }
+        else{
+      
+         return false
+        }
+     }
+     const VTerm=(term)=>{
+         return term
+     }
     const EmailHandler = (email) => {
         setEmail(email.target.value)
+    }
+    const TermHandler = () => {
+        setTerm(!Term)
     }
     const DiscordHandler = (discord) => {
         setDiscord(discord.target.value)
@@ -60,24 +69,50 @@ return true
     }
     const FullNameHandler = (fullname) => {
         setFullName(fullname.target.value)
+        console.log(fullname.target.value)
 
     }
     const PasswordHandler = (password) => {
         setPassword(password.target.value)
 
     }
-    // const LoginWithEmailPassword = () => {
-    //   verif = VEmail(Email)
-    //    VPassword(Password)
-    //    VDiscord(Discord)
-    //     VFullName(FullName)
+    const LoginWithEmailPassword = async() => {
+   let verifemail= VEmail(Email)
+   let verifVPassword=     VPassword(Password)
+   let verifVDiscord=   VDiscord(Discord)
+   let verifVFullName=    VFullName(FullName)
+   let verifVTerm=    VTerm(Term)
+
+   let errors=["Invalid Email Address","Password must be at least 6 characters one digit one special character one uppercase","invalid Discord ID","Full Name must be more than 5 Character","Accept our Terms and Conditions"]
+       let totl=[verifemail,verifVPassword,verifVDiscord,verifVFullName,verifVTerm]
+       let errorss= totl.map((el,i)=>{
+        if(el==true){
+            return true
+        }
+     else{
+         return errors[i]
+     }}).filter(el=>el!==true)
+       console.log(totl)
+       console.log(errorss)
+   setCallBackErr(errorss)
 
 
+let newUSER={FullName:FullName,
+Email:Email,
+Password:Password,
+DiscordID:Discord }
 
-    //     CallBackErr.length>=0 ? props.history.push('/Home') : setErr(true)
-    //     console.log(CallBackErr)
-    //     setErrStyle('animate__animated animate__shakeY')
-    // }
+   if(errorss.length<=0 )
+{    Axios.post('http://localhost:4000/AddNewUser',newUSER)
+   
+   props.history.push('/Home')}
+   else{
+    setErr(true)
+    console.log(CallBackErr)
+    setErrStyle('animate__animated animate__shakeY')
+}
+   }
+   
     return (
         <div>
             <div className="loginForm">
@@ -113,10 +148,10 @@ return true
                     </div>
                     <div className="agreeRegister">
 
-                        <input className="agreeRegisterInput btn btn-black" type="checkbox" />
+                        <input onClick={(e)=>TermHandler(e)} className="agreeRegisterInput btn btn-black" type="checkbox" />
                         <p className="agreeRegisterText">I agree with all Terms and Conditions</p>
                     </div>
-                    <button  className=' btn btn-danger loginButton'>Register</button>
+                    <button onClick={LoginWithEmailPassword} className=' btn btn-danger loginButton'>Register</button>
                     <p className="signupFromLogin btn btn-link" onClick={() => props.history.push('/')}>Already Have an Account </p>
                 </div>
             </div>

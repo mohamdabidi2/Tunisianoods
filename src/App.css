@@ -18,9 +18,18 @@ body {
   background-size: 130%;
   background-repeat: no-repeat;
   width: 65vw;
+ padding-top: 130px;
   height: 100vh;
+  overflow-y: scroll;
 }
+::-webkit-scrollbar {
+  width: 0px; 
+  background: transparent; 
+  }
 
+  ::-webkit-scrollbar-thumb {
+  background: #FF0000;
+  }
 .emailinput{
 padding:5px 10px;
 width: 300px;
