@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Logo from "../resourses/login.jpg"
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, NavLink, withRouter } from 'react-router-dom'
+import Axios from 'axios';
 
 const Login = (props) => {
     const [err, setErr] = useState(false)
@@ -21,10 +22,29 @@ const Login = (props) => {
 
     }
     const LoginWithEmailPassword = () => {
-        let verif = VEmail(Email)
-        verif === true ? props.history.push('/Home') : setErr(true)
-        setCallBackErr("The Email Address or Password That You've Entered Doesn't Match Any Account . ")
-        setErrStyle('animate__animated animate__shakeY')
+        if(Password===""||Email===""){
+            setErr(true)
+            setCallBackErr("no account found for this email address")
+        }
+    Axios.get("http://localhost:4000/getuserLogin/"+Email+"/"+Password).then(res=>{
+        if(res.data===""){
+            setErr(true)
+            setCallBackErr("no account found for this email address")
+        }    
+   
+if(res.data.verifiedEmail===false){
+    setErr(true)
+    setCallBackErr("please verify your account to login")
+
+}
+if(res.data.verifiedEmail===true){
+    localStorage.setItem("user",res.data._id)
+    props.history.push('/dashboard/'+res.data._id)
+
+}
+
+    })
+    
     }
     return (
         <div>

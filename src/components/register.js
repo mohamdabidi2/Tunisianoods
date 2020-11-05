@@ -105,7 +105,8 @@ DiscordID:Discord }
    if(errorss.length<=0 )
 {    Axios.post('http://localhost:4000/AddNewUser',newUSER)
    
-   props.history.push('/Home')}
+//    props.history.push('/Home')
+}
    else{
     setErr(true)
     console.log(CallBackErr)
