@@ -103,9 +103,20 @@ Password:Password,
 DiscordID:Discord }
 
    if(errorss.length<=0 )
-{    Axios.post('http://localhost:4000/AddNewUser',newUSER)
+{    Axios.post('http://localhost:4000/AddNewUser',newUSER).then(res=>{
+if(res.data.msg==="email already exists"){
+    setCallBackErr([res.data.msg])
+    setErr(true)
+    console.log(CallBackErr)
+    setErrStyle('animate__animated animate__shakeY')
+}
+else{
+    localStorage.setItem("confirmEmail",res.data.data.Email)
+    props.history.push("/confirm")
+}
+})
    
-//    props.history.push('/Home')
+
 }
    else{
     setErr(true)

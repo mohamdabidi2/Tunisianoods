@@ -1,7 +1,221 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 .loginForm {
   display: flex;
   justify-content: flex-start;
 }
+
+#responsive-admin-menu {
+	float: left;
+	width: 200px;
+	background-color: #9b2020;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	left: 0px;
+	min-height: 500px;
+
+}
+
+#content-wrapper {
+	width: auto;
+	margin-left: 200px;
+	background-color: #ffffff;
+	height: 1200px;
+	padding: 15px;
+}
+
+#responsive-admin-menu #responsive-menu {
+	height: 50px;
+	display: none;
+	line-height: 50px;
+	cursor: pointer;
+	color: #ffffff;
+	text-indent: 10px;
+}
+
+
+#responsive-admin-menu #responsive-menu .menuicon {
+	color: #ffffff;
+	font-size: 24px;
+	position: absolute;
+	right: 10px;
+	top: 0px;
+}
+#responsive-admin-menu #logo {
+	background-position: -0px -36px;
+	width: 174px;
+	height: 40px;
+	margin: 10px;
+  background: url('https://assets.codepen.io/assets/footer/codepen-logo-midgray.svg') no-repeat;
+  -webkit-background-size: 146.66667px 25.83333px;
+  background-size: 146.66667px 25.83333px;
+}
+
+/* Menu Styles */
+#responsive-admin-menu #menu {
+	width: 100%;
+}
+#responsive-admin-menu #menu a {
+	border-bottom: 1px dotted #52535a;
+	font-size: 14px;
+	text-decoration: none;
+	display: block;
+	padding: 12px;
+	color: #FFFFFF;
+	position: relative;
+	font-weight: 400;
+	overflow: hidden;
+}
+#responsive-admin-menu #menu a:hover {
+	color: #52535a;
+	background-color:#fcfcfc;
+}
+#responsive-admin-menu #menu i {
+	width: 16px;
+	padding-right: 4px;
+}
+#responsive-admin-menu #menu div {
+	display: none;
+	width: 100%;
+	background-color: #5c5d64;
+	overflow: hidden;
+}
+#responsive-admin-menu #menu div a {
+	color: #c0c0c0;
+}
+#responsive-admin-menu #menu div a:hover {
+	color: #888888;
+}
+#responsive-admin-menu #menu a.submenu:before {
+	font-family: FontAwesome;
+	content: "\f054";
+}
+#responsive-admin-menu #menu a.downarrow:before {
+	font-family: FontAwesome;
+	content: "\f078";
+}
+#responsive-admin-menu #menu a.submenu:before {
+	font-size: 14px;
+	position: absolute;
+	right: 15px;
+	top: 17px;
+}
+/* Menu Styles */
+
+@media screen and (max-width: 960px) {
+	#responsive-admin-menu #responsive-menu {
+		display: none;
+	}
+	#responsive-admin-menu #menu a span {
+		display: inline-block;
+	}
+}
+@media screen and (max-width: 800px) {
+	#responsive-admin-menu #menu a span {
+		display: none;
+	}
+	#responsive-admin-menu {
+		float: left;
+		width: 40px;
+		position: relative;
+	}
+	#responsive-admin-menu {
+		height: 100%;
+	}
+	#content-wrapper {
+		margin-left: 40px;
+	}
+	#responsive-admin-menu #menu a.submenu:before {
+		font-size: 6px;
+		right: 5px;
+	}
+	#responsive-admin-menu #logo {
+	
+		background-position: -0px -0px;
+		width: 29px;
+		height: 26px;
+		margin: 10px 10px 10px 5px;
+	}
+}
+.userdashall{
+  height: 100vh;
+}
+.userdashall1{
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #881414;
+  color: white;
+}
+.dropmenu{
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  margin-right: 20px;
+
+}
+.drop-menu-item{
+  list-style: none;
+}
+.dropmenu:hover .dropmenumenu{
+  position: absolute;
+  display: flex;
+
+  justify-content: center;
+  flex-direction: column;
+  top: 20px;
+}
+
+.dropmenumenu{
+  display: none;
+  padding: 0;
+  margin: 0;
+  padding: 20px 10px ;
+  background: #881414;
+  color: white;
+}
+.userdashall2{
+  height: 90%;
+}
+@media screen and (max-width: 480px) {
+	#responsive-admin-menu {
+		min-height: 50px;
+		float: left;
+		width: 100%;
+		background-color: black;
+		height: auto;
+		position: static;
+		top: 0;
+	}
+	#responsive-admin-menu #logo {
+		display: none;
+	}
+	#responsive-admin-menu #menu a span {
+		display: inline-block;
+	}
+	#content-wrapper {
+		margin-left: 0;
+		padding-top: 60px;
+	}
+	#responsive-admin-menu #responsive-menu {
+		display: block;
+	}
+	#responsive-admin-menu #menu {
+		display: none;
+	}
+	#responsive-admin-menu #menu a {
+		color: #FFFFFF;
+	}
+	#responsive-admin-menu #menu a.submenu:before {
+		font-size: 14px;
+		right: 15px;
+	}
+}
+
 
 body {
   padding: 0;
@@ -18,60 +232,69 @@ body {
   background-size: 130%;
   background-repeat: no-repeat;
   width: 65vw;
- padding-top: 130px;
+  padding-top: 130px;
   height: 100vh;
   overflow-y: scroll;
 }
-::-webkit-scrollbar {
-  width: 0px; 
-  background: transparent; 
-  }
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
   background: #FF0000;
-  }
-.emailinput{
-padding:5px 10px;
-width: 300px;
-border-radius: 5px;
-outline: none;
-border: 2px solid black;
 }
-.loginFormIntro{
+
+.emailinput {
+  padding: 5px 10px;
+  width: 300px;
+  border-radius: 5px;
+  outline: none;
+  border: 2px solid black;
+}
+
+.loginFormIntro {
   display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.logoLogin{
-background: #EC1D23;
-color: white;
-padding: 0px 10px;
-font-weight: 900;
-transition: all ease 0.5s;
+
+.logoLogin {
+  background: #EC1D23;
+  color: white;
+  padding: 0px 10px;
+  font-weight: 900;
+  transition: all ease 0.5s;
 }
-.hoods{
+
+.hoods {
   font-weight: 500;
 }
-.logoLogin:hover{
+
+.logoLogin:hover {
   color: rgb(255, 225, 225);
   cursor: pointer;
 }
-.EmailpasswordInput{
+
+.EmailpasswordInput {
   width: 280px;
   margin: 10px 0;
   height: 40px;
-
   padding: 10px 20px;
   padding-left: 40px;
 }
-.formLog{
+
+.formLog {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.loginTitle{font-family: Impact, Charcoal, sans-serif;
+
+.loginTitle {
+  font-family: Impact, Charcoal, sans-serif;
   font-size: 30px;
   letter-spacing: 6px;
   word-spacing: 6px;
@@ -80,51 +303,200 @@ transition: all ease 0.5s;
   text-decoration: none;
   font-style: normal;
   font-variant: normal;
-  text-transform: uppercase;}
-  .EmailpasswordInputContainer{
-    position: relative;
-    width: 280px;
-  }
-  .nameEmailpasswordInputContainer{
-    position: absolute;
-    left: 0;
-    padding: 8px;
-    top:10px;
-    color: white;
-    background: black;
+  text-transform: uppercase;
+}
 
+.EmailpasswordInputContainer {
+  position: relative;
+  width: 280px;
+}
+
+.nameEmailpasswordInputContainer {
+  position: absolute;
+  left: 0;
+  padding: 8px;
+  top: 10px;
+  color: white;
+  background: black;
+}
+
+.forgetPassword {
+  color: rgba(69, 69, 255, 0.575);
+  transition: ease all 500ms;
+  cursor: pointer;
+}
+
+.forgetPassword:hover {
+  color: rgba(0, 0, 0, 0.808);
+}
+
+.loginButton {
+  padding: 5px 50px;
+  border-radius: 0;
+  border: rgba(0, 0, 0, 0.219) 1px solid;
+  background: #EC1D23;
+  outline: none;
+}
+
+.signupFromLogin {
+  color: rgb(0, 0, 0);
+}
+
+.signupFromLogin:hover {
+  color: black;
+}
+
+.agreeRegister {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agreeRegisterText {
+  margin: 0 0 0 5px;
+}
+
+.agreeRegisterInput {
+  padding: 10px;
+}
+
+.menu-confirm-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("./resourses/bg-c.png");
+  height: 100vh;
+}
+
+.menu-confirm-btn {
+  padding: 5px 50px;
+  border-radius: 0;
+  border: rgba(0, 0, 0, 0.219) 1px solid;
+  background: #EC1D23;
+  outline: none;
+}
+
+.menu-confirm {
+  display: flex;
+  background: rgba(255, 255, 255, 0.753);
+  border: 1px rgba(0, 0, 0, 0.384) solid;
+  padding: 35px 100px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.menu-confirm-para{
+  text-align: center;
+  font-size: 22px;
+}
+.menu-confirm-title2{font-size: 18px;color: #EC1D23;}
+.headerdiv{
+  position: absolute;
+width: 100%;
+height: 160px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+top: 0;
+height: 140px;
+
+}
+.header{
+background: #F8F9FA;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+
+height: 80px;
+}
+.table1{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.table2{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.table1Item{
+  height: 50px;
+  margin: 0;
+  width: 16%;
+  text-align: center;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  border: 1px solid black;
+  border-right: none;
+}
+.table2Item{
+
+  height: 50px;
+  margin: 0;
+  width: 16%;
+  text-align: center;
+  padding: 10px 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background: #21252944;
+  border-right: none;
+  border-top: none;
+}
+.table2ItemEnd{ border-right: 1px solid black;}
+.table1ItemEnd{ border-right: 1px solid black;display: flex;text-align: center;}
+
+.souHeader{
+  background: #ec1d249c;
+width: 100vw;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 60px;
+}
+.souHeader-item{
+  color: white;
+  font-size: 16px ;
+  cursor: pointer;
+  padding: 0 40px;
+  margin: 0;
+}
+.souHeader-item:hover{
+color: rgba(0, 0, 0, 0.74);
+font-weight: 500;
+}
+.Tunisianhoods{
+  font-size: 28px;
+  margin: 0;
+  font-weight: 900;
+  color: #212529;
+}
+.footer{
+position: absolute;
+width: 100%;
+height: 80px;
+background:#212529;
+bottom: 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.footer-items{color: white;padding: 2px 20px;cursor: pointer;}
+.Terms-Privacy{width: 200px;display: flex;
+  justify-content: space-between;
+  align-items: center;}
+  .logo-small{
+    width: 80px;
   }
-  .forgetPassword{
-    color: rgba(69, 69, 255, 0.575);
-    transition: ease all 500ms;
-    cursor: pointer;
-  }
-  .forgetPassword:hover{
-    color: rgba(0, 0, 0, 0.808);
-  }
-  .loginButton{
-padding: 5px 50px;
-border-radius: 0;
-border: rgba(0, 0, 0, 0.219) 1px solid;
-background: #EC1D23;
-outline: none;
-  }
-  .signupFromLogin{
-    color: rgb(0, 0, 0);
-  }
-  .signupFromLogin:hover{
-    color: black;
-  }
-  .agreeRegister{
-    display: flex;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .agreeRegisterText{
-    margin: 0 0 0 5px;
-  }
-  .agreeRegisterInput{
-   padding: 10px;
-  }
+  .Tunisianhoods1{
+    padding-left: 20px;
+    color: white;
   
+  }
