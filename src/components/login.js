@@ -57,7 +57,7 @@ if(res.data.verifiedEmail===true){
                 <img className='loginIntroImg' src={Logo} alt="" />
             </div>
             <div className="loginFormIntro">
-                <h1 className="logoLogin">Tunisian <span className="hoods">Hoods</span></h1>
+                <h1 className="logoLogin" onClick={()=>props.history.push("/")}>Tunisian <span className="hoods">Hoods</span></h1>
                 <h2 className='loginTitle'>Login</h2>
                 <div style={err === false ? { display: 'none' } : { display: "block" }} className= {`alert alert-danger ${errStyle}`} role="alert">
                     {CallBackErr}

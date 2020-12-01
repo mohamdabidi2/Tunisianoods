@@ -4,6 +4,7 @@ userSchema=new schema ({
 FullName:{type:String,required:true},
 Email:{type:String,required:true},
 Password:{type:String,required:true},
+userPhoto:{type:String,required:false,default:""},
 DiscordID:{type:String,required:true},
 verifiedEmail:{type:Boolean,default:false},
 IsAdmin:{type:Boolean,default:false},

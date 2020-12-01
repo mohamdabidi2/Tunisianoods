@@ -1,20 +1,27 @@
 import React from 'react';
-const UserDashBoard = () => {
+import { withRouter } from 'react-router-dom';
+const UserDashBoard = (props) => {
+	const logout=()=>{
+		localStorage.setItem('user','')
+		props.history.push('/')
+	  }
     return ( <div className='userdashall'>
-        <div className='userdashall1'>
-<h1 className="Tunisianhoods Tunisianhoods1">Tunisian Hoods</h1>
+<div className="toid">
+<div className='userdashall1'>
+<h1 className="Tunisianhoods Tunisianhoods1"onClick={()=>{props.history.push('/')}}>Tunisian Hoods</h1>
 <ul className="dropmenu">
     <li>My Account
         <ul className="dropmenumenu">
             <li className="drop-menu-item">Profile</li>
             <li className="drop-menu-item">Messages</li>
             <li className="drop-menu-item">Tickets</li>
-            <li className="drop-menu-item">Log out</li>
+            <li className="drop-menu-item" onClick={logout}>Log out</li>
            
         </ul>
     </li>
 </ul>
         </div>
+</div>
         <div className='userdashall2'>
             <div id="responsive-admin-menu">
 	<div id="responsive-menu">
@@ -45,46 +52,107 @@ const UserDashBoard = () => {
 
 </div>
 
-<div id="content-wrapper">
+<div id="content-wrapper" className="bg-1"><div className="block-wari"><h1>Whitelist Application</h1>
+<div className="applicationinputs">
 
-	<div style={{border:"1px #e8e8e8 solid",margin:"0px 0px 10px 0px"}}>
-		<div style={{borderBottom:"1px #e8e8e8 solid",backgroundColor:"#f3f3f3",padding:"8px",fontSize:"13px",fontWeight:"700",color:"#45484d"}}>
-			Admin Menu Content</div>
-		<div style={{padding:"8px",fontSize:"13px"}}>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-			culpa qui officia deserunt mollit anim id est laborum.		</div>
-	</div>
+<div className="valuesinputs">
+<p className="app-text">Name In Real Life :</p>
+<input type="text" placeholder="FirstName lastName" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Age :</p>
+<input type="number" placeholder="23" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Why did you choose to join TH Server/Community ? :</p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Do you have any Experience in RP ? :</p>
+<div className="radiobtns">
+	<span>NO</span><input type="radio" name="t1" id="yes"/>
+	<span>YES</span><input type="radio" name="t1" id="no"/>
 
-	<div style={{border:"1px #e8e8e8 solid",width:"49%",float:"left",margin:"10px 0px 10px 0px"}}>
-		<div style={{borderBottom:"1px #e8e8e8 solid",backgroundColor:"#f3f3f3",padding:"8px",fontSize:"13px",fontWeight:"700",color:"#45484d"}}>
-			Admin Menu Content</div>
-		<div style={{padding:"8px",fontSize:"13px"}}>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-			culpa qui officia deserunt mollit anim id est laborum.		</div>
-	</div>
+</div>
+</div>
+<div className="valuesinputs">
+<p className="app-text">if Yes on which servers have you played ? :</p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What's your character backstory ?</p>
+<textarea name="" id="" cols="61" rows="5"></textarea>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What's The Meaning Of RP :</p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What is Powergaming ? </p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Examples of Powergaming </p>
+<input type="text" name="" id="" className="app-values"/>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What is Metagaming ?</p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Examples of Metagaming </p>
+<input type="text" name="" id="" className="app-values"/>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What Is The New Life Rule ? </p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">Examples of New Life Rule ?  </p>
+<input type="text" name="" id="" className="app-values"/>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What IS Revenge Killing ? </p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What Is Greenzone/Redzones ? (Define Greenzones/Redzones + Min 2 Examples Each) </p>
+<textarea name="" id="" cols="61" rows="5"></textarea>
+</div>
+<div className="valuesinputs">
+<p className="app-text">How to use /me and /Do ? </p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<div className="valuesinputs">
+<p className="app-text">What is Cop baiting ? </p>
+<input type="text" name="" id="" className="app-values"/>
+</div>
+<h3>Situation :</h3>
+<p>chnoua l ghalet fel scéne w kan s7e7a 9oul rahi s7e7a</p>
+<div className="valuesinputs">
+<p className="app-text">Enty w sahbek ta3mlou fi bank jekom chkoun kartech 3likom taya7 sahbek w hrab
+ja l 7ekem bch yetfawedh m3akom tlabtou el hélico ma tjich w el chouk ma yet7attech
+w yjiboulkom ems ... 3amlou elli tlabtouh w jaboulkom ems d5al lel bank 9ayem
+sahbek w houa 5arej chafek haz sla7ek 3la hostage w m5alli el 2 lo5rin ye5i 
+5raj 7ka lel 7akem ba3d 2 min bel wa9t d5al el 7akem 9talkom el 3 w 5arrej el raha2n
+labes 3lehom . </p>
+<textarea name="" id="" cols="61" rows="5"></textarea>
+</div>
 
-	<div style={{border:"1px #e8e8e8 solid",width:"49%",float:"right",margin:"10px 0px 10px 0px"}}>
-		<div style={{borderBottom:"1px #e8e8e8 solid",backgroundColor:"#f3f3f3",padding:"8px",fontSize:"13px",fontWeight:700,color:"#45484d"}}>
-			Admin Menu Content</div>
-		<div style={{padding:"8px",fontSize:"13px"}}>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-			aliquip ex ea commodo consequat. Duis aute irure dolor in 
-			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-			culpa qui officia deserunt mollit anim id est laborum.		</div>
-	</div>
+
+</div>
+
+<button>Send</button>
+
+
+
+
+
+
+</div>
 
 
 
@@ -97,4 +165,4 @@ const UserDashBoard = () => {
      );
 }
  
-export default UserDashBoard;
+export default withRouter(UserDashBoard);

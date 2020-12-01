@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('./models/userModel')
+const Rule = require('./models/rule.js')
 const cors = require('cors')
 const path = require('path')
 require('dotenv').config()
@@ -90,9 +91,39 @@ app.post('/AddNewUser', (req, res) => {
 
 })
 
+//add some rules
+app.post('/add/rule/admin', (req, res) => {
+
+  let newRule = new Rule({ ...req.body})
+  newRule.save()
+  res.send({ msg: "success", data: newRule })
 
 
 
+
+})
+//get all rules
+app.get('/rules/all', (req, res) => {
+
+  Rule.find({},(err,data)=>{
+if (err){
+  res.send("!rule")
+}
+res.send(data)
+  })
+
+})
+//get user info
+app.get('/username/:id', (req, res) => {
+  let id=req.params.id
+  User.find({_id:id},(err,data)=>{
+if (err){
+  res.send("!user")
+}
+res.send({FullName:data.FullName,img:data.userPhoto})
+  })
+
+})
 
 app.get('/ListOfAllUsers', (req, res) => {
   User.find()

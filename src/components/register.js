@@ -132,7 +132,7 @@ else{
                     <img className='loginIntroImg' src={Logo} alt="" />
                 </div>
                 <div className="loginFormIntro">
-                    <h1 className="logoLogin">Tunisian <span className="hoods">Hoods</span></h1>
+                    <h1 className="logoLogin" onClick={()=>props.history.push("/")}>Tunisian <span className="hoods">Hoods</span></h1>
                     <h2 className='loginTitle'>Register </h2>
                     {CallBackErr.map((el,i)=>
                              <div key={i} style={err === false ? { display: 'none' } : { display: "block" }} className={`alert alert-danger ${errStyle}`} role="alert">
