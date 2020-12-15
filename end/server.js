@@ -12,6 +12,8 @@ const bcrypt = require('bcrypt')
 const log = console.log;
 const nodemailer = require("nodemailer");
 const HtmlEmail = require('./Mail')
+const Product = require('./models/DonationPacks')
+const Donation = require('./models/donationModel')
 
 mongoose.connect("mongodb+srv://hexor:794613@cluster0.ikuch.mongodb.net/tunisianhoods?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -102,10 +104,43 @@ app.post('/add/rule/admin', (req, res) => {
 
 
 })
+//add some DonationProducts
+app.post('/add/donation/admin', (req, res) => {
+
+  let newProduct = new Product({ ...req.body})
+  newProduct.save()
+  res.send({ msg: "success", data: newProduct })
+
+
+
+
+})
+app.post('/add/donation/user', (req, res) => {
+
+  let newDonation = new Donation({ ...req.body})
+  newDonation.save()
+  res.send({ msg: "success", data: newDonation })
+
+
+
+
+})
 //get all rules
 app.get('/rules/all', (req, res) => {
 
   Rule.find({},(err,data)=>{
+if (err){
+  res.send("!rule")
+}
+res.send(data)
+  })
+
+})
+
+//get all Donation Products
+app.get('/Donation/all', (req, res) => {
+
+  Product.find({},(err,data)=>{
 if (err){
   res.send("!rule")
 }

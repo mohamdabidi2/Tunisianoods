@@ -14,7 +14,7 @@ const Home = (props) => {
                         <ul className="menuheader-item-menu">
                             <li className="menuheader-item-item fdg"  onClick={()=>props.history.push('/home/staff')}>Staff</li>
                             <li className="menuheader-item-item fdg" onClick={()=>props.history.push('/fivem/admins/rules/all')}>Rules</li>
-                            <li className="menuheader-item-item">Whitelist Application</li>
+                            <li className="menuheader-item-item" onClick={()=>props.history.push('/home/whitelistApp')}>Whitelist Application</li>
                             <li className="menuheader-item-item">Staff Application</li>
                             <li className="menuheader-item-item">Bug Report</li>
                             <li className="menuheader-item-item">Open Ticket</li>
@@ -22,7 +22,8 @@ const Home = (props) => {
                         </ul>
                         
                         </li>
-                        <li className="menuheader-item  menuheader-item-drop">Donation
+                                              <li className="menuheader-item  menuheader-item-drop"><span className="donate" onClick={()=>props.history.push('/home/donation')}>Donation</span>
+
                         <ul className="menuheader-item-menu menuheader-item-menu2">
                             <li className="menuheader-item-item fdg">Priority Queue</li>
                             <li className="menuheader-item-item">Character Name Change</li>
@@ -32,6 +33,7 @@ const Home = (props) => {
                             <li className="menuheader-item-item">Custom Phone number</li>
                             <li className="menuheader-item-item">Custom Vehicle Plat</li>
                             <li className="menuheader-item-item">Housing</li>
+                            
 
                         </ul>
                         </li>

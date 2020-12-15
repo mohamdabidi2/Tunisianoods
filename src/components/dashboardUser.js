@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 const UserDashBoard = (props) => {
 	const logout=()=>{
 		localStorage.setItem('user','')
 		props.history.push('/')
 	  }
+	  useEffect(() => {
+        localStorage.getItem('user')==""?props.history.push('/log'):console.log("")
+        
+    }, [])
     return ( <div className='userdashall'>
 <div className="toid">
 <div className='userdashall1'>
@@ -32,7 +36,7 @@ const UserDashBoard = (props) => {
 
 
 	<div id="menu">
-			<a href="" title="Dashboard"><i class="icon-dashboard"></i><span> 
+			<a onClick={()=>props.history.push('/home/whitelistApp')}><i class="icon-dashboard"></i><span > 
 			Whitelist Application</span></a>
 			<a href="" title="News"><i class="icon-bullhorn"></i><span> Open Ticket</span></a>
 			<a href="" title="Pages"><i class="icon-file-alt"></i><span> Rules</span></a>
